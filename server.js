@@ -4,7 +4,10 @@ import { message } from "telegraf/filters";
 import connectDB from "./src/config/db.js";
 import eventModel from "./src/models/event.model.js";
 import OpenAI from "openai";
+import express from "express";
 
+
+const app = express();
 // Initialize OpenAI API
 const openai = new OpenAI({
     apiKey: process.env["OPEN_AI_API_KEY"]
@@ -179,3 +182,21 @@ process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
 
 bot.launch();
+
+
+const secretPath = `/telegraf/${bot.secretPathComponent()}`;
+app.use(bot.webhookCallback(secretPath));
+
+const webhookUrl = `${process.env.VERCEL_URL}${secretPath}`;
+bot.telegram.setWebhook(webhookUrl).then(() => {
+  console.log(`Webhook set to: ${webhookUrl}`);
+}).catch(error => {
+  console.error("Failed to set webhook", error);
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+export default app;
