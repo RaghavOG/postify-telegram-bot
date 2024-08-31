@@ -1,0 +1,22 @@
+{
+  "name": "telegram-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --no-deprecation --env-file=.env server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "telegraf": "^4.16.3"
+  },
+  "dependencies": {
+    "mongoose": "^8.6.0",
+    "openai": "^4.57.0",
+    "openai-node": "^1.0.5"
+  }
+}

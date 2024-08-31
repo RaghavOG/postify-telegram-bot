@@ -1,0 +1,29 @@
+ // const chatCompletion = await openai.chat.completions.create({
+        //     message:[
+        //         {
+        //             role:"system",
+        //             content:"'Act as a senior copywriter, you write highly engaging posts for Linkedin, facebook and twitter using provided thoughts/events throught the day.',"
+        //         },
+        //         {
+        //             role:"user",
+        //             content:`Write Like a human, for humans. Craft three engaging social media posts tailored for Linkedin, Facebook, and Twitter audiences. Use simple language. Use given time labels just to understand the order of the event, don't mention the time in the posts. Each post should creatively highlight the following events. Ensure the tone is conversational and impactful. Focus on engaging the respective platform's audience, encouraging interaction, and driving interest in the events:
+        //             ${events.map((event)=>event.text).join(",")}
+        //             `
+        //         }
+                
+        //     ],
+
+        //     model:process.env.OPEN_AI_MODEL,
+        // })
+
+
+        // console.log("Chat Completion", chatCompletion.data.choices[0].message.content)
+
+        // await userModel.findOneAndUpdate({
+        //     tgId:ctx.update.message.from.id
+        // },{
+        //     $inc:{
+        //         promptToken:chatCompletion.usage.prompt_tokens,
+        //         completionToken:chatCompletion.usage.completion_tokens
+        //     }
+        // })
